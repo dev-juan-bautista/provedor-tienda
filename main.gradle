@@ -1,6 +1,7 @@
 apply plugin: 'info.solidsoft.pitest.aggregator'
 
 allprojects {
+    apply from: "${rootDir}/dependencyMgmt.gradle"
     repositories {
         mavenCentral()
         maven { url = "https://repo.spring.io/snapshot" }
@@ -28,6 +29,7 @@ subprojects {
     }
 
     dependencies {
+		implementation platform('software.amazon.awssdk:bom:2.32.3')
         implementation 'io.projectreactor:reactor-core'
         implementation 'io.projectreactor.addons:reactor-extra'
 
@@ -41,8 +43,8 @@ subprojects {
         testCompileOnly  "org.projectlombok:lombok:${lombokVersion}"
         testAnnotationProcessor  "org.projectlombok:lombok:${lombokVersion}"
         implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
-        //implementation "org.mapstruct:mapstruct:${mapstructVersion}"
-        //annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+        implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+        annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
     }
 
     tasks.withType(Test).configureEach {

@@ -1,0 +1,7 @@
+configurations.configureEach {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        if (details.requested.group == 'org.mapstruct') {
+            details.useVersion("1.5.5.Final")
+        }
+    }
+}

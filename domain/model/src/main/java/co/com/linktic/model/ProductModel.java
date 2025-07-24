@@ -13,11 +13,11 @@ import lombok.Builder;
 @Builder
 public class ProductModel {
 
-    private Long id;
+    private String id;
 
     private String name;
 
-    private String price;
+    private Double price;
 
     private String description;
 

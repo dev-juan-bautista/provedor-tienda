@@ -1,4 +1,4 @@
-package co.com.linktic.api.dto.request;
+package co.com.linktic.validator.dto.request;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,7 +18,7 @@ import lombok.Builder;
 public class ProductDto {
 
     @JsonProperty("id")
-    private Long id;
+    private String id;
 
     @JsonProperty("nombre")
     @NotNull(message = "El campo nombre es obligatorio")
@@ -28,7 +28,7 @@ public class ProductDto {
     @JsonProperty("precio")
     @NotNull(message = "El campo precio es obligatorio")
     @Valid
-    private String price;
+    private Double price;
 
     @JsonProperty("descripccion")
     private String description;

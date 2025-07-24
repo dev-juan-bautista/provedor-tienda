@@ -1,6 +1,12 @@
+apply from: "${rootDir}/dependencyMgmt.gradle"
 apply plugin: 'org.springframework.boot'
 
 dependencies {
+	implementation 'org.reactivecommons.utils:object-mapper:0.1.0'
+	implementation project(':dynamo-db')
+	implementation project(':metrics')
+	implementation 'software.amazon.awssdk:sts'
+	implementation project(':validator')
 	implementation project(':reactive-web')
     implementation project(':model')
     implementation project(':usecase')
